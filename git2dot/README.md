@@ -9,7 +9,7 @@ I use it like this on my mac:
 $ cd ~/myproject1
 $ ls -1d .git
 .git
-$ docker run -it --rm --init -v $(pwd):/opt/work git2dot.py --since 2017-08-01 --png -l "'%h|%s|%cn|%cr'" git.dot
+$ docker run -it --rm -v $(pwd):/mnt/share git2dot.py --since 2017-08-01 --png -l "'%h|%s|%cn|%cr'" git.dot
 $ open -a Preview git.dot.png
 ```
 

@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /opt/work
+cd /mnt/share
 eval $*

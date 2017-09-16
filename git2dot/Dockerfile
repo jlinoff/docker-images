@@ -1,5 +1,5 @@
 # $ docker build -f Dockerfile -t jlinoff/git2dot:latest .
-# $ docker run -it --rm --init -v $(pwd):/opt/work jlinoff/git2dot git2dot.py -h
+# $ docker run -it --rm --init -v $(pwd):/mnt/share jlinoff/git2dot git2dot.py -h
 FROM ubuntu:latest
 
 RUN apt-get update -y
@@ -45,13 +45,13 @@ COPY runner.sh /usr/local/bin/runner.sh
 RUN chmod 0755 /usr/local/bin/runner.sh
 
 # Create the shared work area.
-RUN mkdir /opt/work
-RUN cd /opt/work
-VOLUME /opt/work
+RUN mkdir /mnt/share
+RUN cd /mnt/share
+VOLUME /mnt/share
 
 #LABEL com.github.jlinoff.docker-images.git2dot.build-date=2017-09-13T12:35:45-0700
-LABEL com.github.jlinoff.docker-images.git2dot.description="Execute git2dot in the /opt/work directory."
-LABEL com.github.jlinoff.docker-images.git2dot.cmd="docker run -it --rm --init -v $(pwd):/opt/work jlinoff/git2dot git2dot --png git.dot"
+LABEL com.github.jlinoff.docker-images.git2dot.description="Execute git2dot in the /mnt/share directory."
+LABEL com.github.jlinoff.docker-images.git2dot.cmd="docker run -it --rm --init -v $(pwd):/mnt/share jlinoff/git2dot git2dot --png git.dot"
 
 ENTRYPOINT ["/usr/local/bin/runner.sh"]
 
