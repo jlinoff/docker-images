@@ -20,3 +20,5 @@ To see when the image was built:
 ```bash
 $ docker inspect jlinoff/git2dot | grep '"Labels"' -A 4
 ```
+
+To get more information about the git2dot tool see https://github.com/jlinoff/git2dot.
