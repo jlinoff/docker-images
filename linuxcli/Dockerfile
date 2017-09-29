@@ -11,6 +11,7 @@ RUN apt-get install -y man
 RUN apt-get install -y git
 RUN apt-get install -y python python-pip python-dateutil python-virtualenv
 RUN apt-get install -y sshpass
+RUN apt-get install -y vim
 
 RUN mkdir /mnt/share
 VOLUME /mnt/share
