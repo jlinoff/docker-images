@@ -2,7 +2,7 @@ IMAGE=jlinoff/linuxcli
 all: build
 
 .PHONY: build test info push
-build: Dockerfile runner.sh
+build: Dockerfile
 	docker build -f Dockerfile --label=com.github.jlinoff.docker-images.linuxcli.build-date=$$(date +"%Y-%m-%dT%T%z") -t $(IMAGE):latest .
 
 test:
@@ -12,6 +12,7 @@ test:
 	docker run -it --rm --init -v $$(pwd):/mnt/share $(IMAGE) tar --version
 	docker run -it --rm --init -v $$(pwd):/mnt/share $(IMAGE) ssh -V
 	docker run -it --rm --init -v $$(pwd):/mnt/share $(IMAGE) git --version
+	docker run -it --rm --init -v $$(pwd):/mnt/share $(IMAGE) make --version
 
 info:
 	docker inspect $(IMAGE) | grep '"Labels"' -A 4
