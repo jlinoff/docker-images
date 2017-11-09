@@ -20,7 +20,7 @@ LABEL com.github.jlinoff.docker-images.awscli.docker.cmd="docker run -it --rm -v
 ENV PATH="${PATH}:/root/.local/bin"
 
 RUN apk update
-RUN apk add python2 py2-pip
+RUN apk add python2 py2-pip less groff
 RUN pip install --upgrade pip
 RUN pip install awscli --upgrade --user
 
