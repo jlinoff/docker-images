@@ -15,7 +15,7 @@ all: build
 
 build:
 	docker build -f Dockerfile -t $(IMAGE_NAME) . \
-		--build-arg "ROOT_PASS=$(CONT_ROOT_PASS)" \
+		--build-arg "ROOT_PASS=$(ROOT_PASS)" \
 		--build-arg "USER_NAME=$(USER_NAME)" \
 		--build-arg "USER_PASS=$(USER_PASS)" \
 		--label=build-date="$(RFC_3339_DATE)"
