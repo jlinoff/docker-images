@@ -89,6 +89,6 @@ test-install-ssh:
 		$(IMAGE_NAME) \
 		--key /mnt/share/id_rsa.pub sleep 60
 	cat -n id_rsa.pub
-	docker exec -it $@ cat -n /home/dev/.ssh/authorized_keys
+	docker exec -it $@ cat -n /home/$(USER_NAME)/.ssh/authorized_keys
 	docker exec -it $@ ls -l /mnt/share
-	ssh -p 2222 dev@localhost uptime
+	ssh -p 2222 $(USER_NAME)@localhost uptime
